@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kataminesweeper;
 
 import java.io.ByteArrayOutputStream;
@@ -13,13 +8,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
- * @author erosol
+ * @author Kai Hempel
  */
 public class PlaygroundInternalViewTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    
+
     public PlaygroundInternalViewTest() {
     }
 

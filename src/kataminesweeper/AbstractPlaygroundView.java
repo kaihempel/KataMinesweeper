@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kataminesweeper;
 
 /**
- *
- * @author erosol
+ * @author Kai Hempel
  */
 abstract public class AbstractPlaygroundView {
 
@@ -16,6 +10,6 @@ abstract public class AbstractPlaygroundView {
     public AbstractPlaygroundView(Playground playground) {
         this.playground = playground;
     }
-    
+
     abstract public void draw();
 }

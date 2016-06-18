@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kataminesweeper;
 
 import org.junit.After;
@@ -13,8 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author erosol
+ * @author Kai Hempel
  */
 public class FieldTest {
 
