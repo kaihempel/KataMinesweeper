@@ -80,4 +80,8 @@ public class Playground {
             this.playground[x][y].setBomb();
         }
     }
+
+    public Field[][] getPlayground() {
+        return this.playground;
+    }
 }
