@@ -5,18 +5,19 @@ package kataminesweeper;
  */
 abstract public class AbstractPlaygroundView {
 
-    Playground playground;
-    String outputString;
+    protected Playground playground;
+
+    protected String playfieldViewData;
 
     public AbstractPlaygroundView(Playground playground) {
         this.playground = playground;
-        this.outputString = "";
+        this.playfieldViewData = "";
     }
 
     abstract protected void renderOutputString();
 
     public void draw() {
         this.renderOutputString();
-        System.out.print(outputString);
+        System.out.print(playfieldViewData);
     }
 }
