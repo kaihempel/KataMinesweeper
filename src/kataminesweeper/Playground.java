@@ -21,6 +21,11 @@ public class Playground {
     }
 
     public void initialzePlayground() {
+        Boolean placeBombs = true;
+        this.initialzePlayground(placeBombs);
+    }
+
+    public void initialzePlayground(Boolean placeBombs) {
 
         for (int x = 0; x < this.width; x++) {
             for (int y = 0; y < this.height; y++) {
@@ -28,7 +33,9 @@ public class Playground {
             }
         }
 
-        this.placeBombs();
+        if (placeBombs) {
+            this.placeBombs();
+        }
     }
 
     private int calculateNumberOfBombs() {
@@ -59,6 +66,10 @@ public class Playground {
         } while (numberOfBombs > 0);
     }
 
+    private void updateFieldValue(int x, int y) {
+
+    }
+
     public boolean isEmpty() {
         return (this.width == 0 || this.height == 0);
     }
@@ -83,5 +94,14 @@ public class Playground {
 
     public Field[][] getPlayground() {
         return this.playground;
+    }
+
+    public int getFieldCounter(int x, int y) throws Exception {
+
+        if (this.playground[x][y].hasBomb()) {
+            throw new Exception("Booom!");
+        }
+
+        return this.playground[x][y].getCounter();
     }
 }

@@ -40,6 +40,13 @@ public class PlaygroundTest {
         assertEquals(0, playground.getHeight());
     }
 
+    public void testGetPlayground() {
+        Playground playground = new Playground(2, 2);
+
+        Field[][] expected = new Field[2][2];
+        assertArrayEquals(expected, playground.getPlayground());
+    }
+
     @Test
     public void testFourByFourPlayground() {
 
@@ -59,12 +66,31 @@ public class PlaygroundTest {
         assertEquals(4, playground.getWidth());
         assertEquals(4, playground.getHeight());
 
-        playground.initialzePlayground();
+        playground.initialzePlayground(false);
 
         assertFalse(playground.hasBomb(0,0));
 
         playground.setBomb(0,0);
 
         assertTrue(playground.hasBomb(0,0));
+    }
+
+    @Test
+    public void testGetFieldCounter() throws Exception {
+
+        Playground playground = new Playground(4, 4);
+        playground.initialzePlayground(false);
+
+        assertFalse(playground.hasBomb(1,1));
+
+        playground.setBomb(1,1);
+
+        assertTrue(playground.hasBomb(1,1));
+        assertEquals(1, playground.getFieldCounter(0,0));
+
+        playground.setBomb(0,1);
+
+        assertTrue(playground.hasBomb(0,1));
+        assertEquals(2, playground.getFieldCounter(0,0));
     }
 }
