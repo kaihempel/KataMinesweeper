@@ -59,15 +59,52 @@ public class Playground {
             x = rand.nextInt(this.width);
             y = rand.nextInt(this.height);
 
-            if (this.playground[x][y].hasBomb() == false) {
-                this.playground[x][y].setBomb();
+            if (this.hasBomb(x, y) == false) {
+                this.setBomb(x, y);
                 numberOfBombs--;
             }
         } while (numberOfBombs > 0);
     }
 
-    private void updateFieldValue(int x, int y) {
+    private void updateFieldCounters(int x, int y) {
 
+        int startX  = this.getUpdateStartPosition(x);
+        int endX    = this.getUpdateEndPosition(x);
+        int startY  = this.getUpdateStartPosition(y);
+        int endY    = this.getUpdateEndPosition(y);
+
+        this.incrementFieldCounterInRange(startX, startY, endX, endY);
+    }
+
+    private int getUpdateStartPosition(int pos) {
+
+        if (pos == 0) {
+            return 0;
+        }
+
+        return pos - 1;
+    }
+
+    private int getUpdateEndPosition(int pos) {
+        int endPos = pos + 1;
+
+        if (endPos >= this.width) {
+            return pos;
+        }
+
+        return endPos;
+    }
+
+    private void incrementFieldCounterInRange(int startX, int startY, int endX, int endY) {
+
+        for (int x = startX; x <= endX; x++) {
+            for (int y = startY; y <= endY; y++) {
+
+                if (! this.hasBomb(x, y)) {
+                    this.playground[x][y].incrementCounter();
+                }
+            }
+        }
     }
 
     public boolean isEmpty() {
@@ -89,6 +126,7 @@ public class Playground {
     public void setBomb(int x, int y) {
         if (! this.isEmpty() && this.playground[x][y] != null) {
             this.playground[x][y].setBomb();
+            this.updateFieldCounters(x, y);
         }
     }
 
