@@ -26,6 +26,7 @@ public class Field {
     }
 
     public void setBomb() {
+        this.counter = 0;
         this.hasBomb = true;
     }
 
